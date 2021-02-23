@@ -1,0 +1,49 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Category {
+  id: String
+  name: String
+  slug: String
+}
+
+type Product {
+  id: String
+  name: String
+  description: String
+  slug: String
+  category: Category
+  price: Float
+}
+
+type Query {
+  getAll: [Product!]!
+  getById(id: String!): Product!
+  getAllCategories: [Category!]!
+  getCategoryById(id: String!): Category!
+}
+
+type Mutation {
+  deleteProduct(id: String!): Boolean!
+  createProduct(input: ProductInput!): Boolean!
+  updateProduct(input: ProductInput!, id: String!): Boolean!
+  deleteCategory(id: String!): Boolean!
+  createCategory(input: CategoryInput!): Boolean!
+  updateCategory(input: CategoryInput!, id: String!): Boolean!
+}
+
+input ProductInput {
+  id: Float
+  name: String!
+  description: String!
+  slug: String!
+  price: Float!
+  categoryId: String!
+  categoryName: String!
+}
+
+input CategoryInput {
+  name: String!
+  slug: String!
+}
